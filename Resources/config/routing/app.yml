@@ -1,19 +1,19 @@
 lexik_translation_overview:
     path:     /
-    defaults: { _controller: "LexikTranslationBundle:Translation:overview" }
+    defaults: { _controller: "lexik_translation.controller.translation_controller:overviewAction" }
     methods:  [GET]
 
 lexik_translation_grid:
     path:     /grid
-    defaults: { _controller: "LexikTranslationBundle:Translation:grid" }
+    defaults: { _controller: "lexik_translation.controller.translation_controller:gridAction" }
     methods:  [GET]
 
 lexik_translation_new:
     path:     /new
-    defaults: { _controller: "LexikTranslationBundle:Translation:new" }
+    defaults: { _controller: "lexik_translation.controller.translation_controller:newAction" }
     methods:  [GET, POST]
 
 lexik_translation_invalidate_cache:
     path:     /invalidate-cache
-    defaults: { _controller: "LexikTranslationBundle:Translation:invalidateCache" }
+    defaults: { _controller: "lexik_translation.controller.translation_controller:invalidateCacheAction" }
     methods:  [GET]

@@ -51,6 +51,9 @@
         <parameter key="lexik_translation.importer.case_insensitive">false</parameter>
         <parameter key="lexik_translation.token_finder.limit">15</parameter>
 
+        <parameter key="lexik_translation.controller.translation_controller.class">Lexik\Bundle\TranslationBundle\Controller\TranslationController</parameter>
+        <parameter key="lexik_translation.controller.rest_controller.class">Lexik\Bundle\TranslationBundle\Controller\RestController</parameter>
+
         <parameter key="lexik_translation.translator.options" type="collection">
             <parameter key="cache_dir">%kernel.cache_dir%/translations</parameter>
             <parameter key="debug">%kernel.debug%</parameter>
@@ -163,6 +166,18 @@
         <service id="Lexik\Bundle\TranslationBundle\Command\ExportTranslationsCommand" class="%lexik_translation.command.export_translations.class%">
             <tag name="console.command" />
         </service>
-        
+
+        <!-- Controllers -->
+        <service id="lexik_translation.controller.translation_controller" class="%lexik_translation.controller.translation_controller.class%" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="lexik_translation.controller.rest_controller" class="%lexik_translation.controller.rest_controller.class%" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
     </services>
 </container>
